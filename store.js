@@ -40,7 +40,32 @@ fetch('https://api.escuelajs.co/api/v1/products', result)
         dataa.forEach(element=>{
             element.price=(element.price)*EGPRate;
         })
-        console.log(json);
+        let final= {
+            1:[],
+            2:[],
+            3:[],
+            4:[],
+            5:[]
+        }
+        dataa.forEach(element=>{
+            if (element.category.name == "Clothes"){
+            final[1].push(element);
+            }
+            else if(element.category.name == "Electronics"){
+            final[2].push(element);
+            }
+            else if(element.category.name == "Furniture"){
+                final[3].push(element);
+            }
+            else if(element.category.name == "Shoes"){
+                final[4].push(element);
+            }
+            else {
+                final[5].push(element);
+            }
+        })
+        console.log(final);
+        // console.log(json);
     })
 
 
