@@ -10,17 +10,19 @@ var myHeaders = new Headers();
         headers: myHeaders
     };
     
+    let EGPRate; 
+
     let result = fetch("https://api.apilayer.com/exchangerates_data/convert?to=EGP&from=USD&amount=1", requestOptions)
         .then(response => response.json())
         .then(function (result){ 
-            let EGPRate = result.result
+            EGPRate = result.result
             console.log(EGPRate);
         })
         .catch(error => console.log('error', error));
 
         // console.log(EGPRate);
 
-fetch('https://api.escuelajs.co/api/v1/products')
+fetch('https://api.escuelajs.co/api/v1/products', result)
     .then(response => response.json())
     .then(function (data){
     let sort = data.sort(function(a, b) {
@@ -33,7 +35,12 @@ fetch('https://api.escuelajs.co/api/v1/products')
     //     console.log(changePrice[1].price * EGPRate)
     // })
     .then( function(json) {    
-        console.log(json[1].price)
+        let dataa = Array.from(json);
+        // console.log(dataa[1].price);
+        dataa.forEach(element=>{
+            element.price=(element.price);
+        })
+        console.log(json);
     })
 
 
