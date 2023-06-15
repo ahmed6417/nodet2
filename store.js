@@ -41,27 +41,27 @@ fetch('https://api.escuelajs.co/api/v1/products', result)
             element.price=(element.price)*EGPRate;
         })
         let final= {
-            1:[],
-            2:[],
-            3:[],
-            4:[],
-            5:[]
+            Clothes:[],
+            Electronics:[],
+            Furniture:[],
+            Shoes:[],
+            Others:[]
         }
         dataa.forEach(element=>{
             if (element.category.name == "Clothes"){
-            final[1].push(element);
+            final.Clothes.push(element);
             }
             else if(element.category.name == "Electronics"){
-            final[2].push(element);
+            final.Electronics.push(element);
             }
             else if(element.category.name == "Furniture"){
-                final[3].push(element);
+                final.Furniture.push(element);
             }
             else if(element.category.name == "Shoes"){
-                final[4].push(element);
+                final.Shoes.push(element);
             }
             else {
-                final[5].push(element);
+                final.Others.push(element);
             }
         })
         console.log(final);
