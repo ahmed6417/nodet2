@@ -28,7 +28,7 @@ fetch('https://api.escuelajs.co/api/v1/products', result)
     let sort = data.sort(function(a, b) {
         return parseFloat(a.id) - parseFloat(b.id);
     })
-    let filtro = sort.slice(0, 10);
+    let filtro = sort.slice(0, 30);
     return filtro
     })
     // .then( function(changePrice) {    
@@ -38,7 +38,7 @@ fetch('https://api.escuelajs.co/api/v1/products', result)
         let dataa = Array.from(json);
         // console.log(dataa[1].price);
         dataa.forEach(element=>{
-            element.price=(element.price);
+            element.price=(element.price)*EGPRate;
         })
         console.log(json);
     })
